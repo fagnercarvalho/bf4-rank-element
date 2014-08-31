@@ -1,0 +1,107 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer-jsonp/polymer-jsonp.html">
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+<!--
+Element providing basic rank information for a BF4 soldier.
+
+##### Example
+
+    <bf4-rank-element name="BlastW" platform="pc"></bf4-rank-element>
+
+@element bf4-rank-element
+@blurb Element providing basic rank information for a BF4 soldier.
+@status stable
+@homepage http://fagnerncarvalho.github.io/bf4-rank-element
+-->
+<polymer-element name="bf4-rank-element" attributes="name platform">
+
+  <template>
+
+    <link rel="stylesheet" href="bf4-rank-element.css" />
+    
+    <polymer-jsonp auto url="http://api.bf4stats.com/api/playerInfo?name={{name}}&plat={{platform}}&output=jsonp&opt=names,imagePaths&callback="  
+    response="{{response}}" on-polymer-response="{{responseHandler}}">
+    </polymer-jsonp>
+
+    <div class="main">
+
+      <div class="text">
+        {{name}} 
+      </div>
+
+        <img src="{{rankImage}}" class="rankImage"/>
+
+      <div class="text rank">
+        {{rank}}
+      </div>
+
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer('bf4-rank-element', {
+      /**
+       * `name` attribute sets the BF4 soldier which 
+       * the rank information will be displayed
+       *
+       * @attribute name
+       * @type string
+       * @default 'fagnerc'
+       */
+      name: 'BlastW',
+      
+      /**
+       * `platform` attribute sets the selected platform
+       *  
+       *  Options:
+       *  pc
+       *      PC platform
+       *  xbox
+       *      XBOX 360 console platform
+       *  ps3
+       *      Playstation 3 console platform
+       *  xone
+       *     XBOX ONE console platform.
+       *  ps4
+       *     Playstation 4 console platform. 
+       *
+       * @attribute platform
+       * @type string
+       * @default 'pc'
+       */
+      platform: 'pc',
+
+      /**
+       * The soldier's current rank. 
+       */
+      rank: '',
+
+      /**
+       * The soldier's current rank image.
+       */
+      rankImage: '',
+
+      response: null,
+
+      responseHandler: function(){
+         this.rank = this.response.player.rank.name;
+         this.rankImage = 'http://files.bf4stats.com/img/' + this.response.player.rank.imgLarge;
+      }    
+
+    });
+
+  </script>
+
+</polymer-element>
