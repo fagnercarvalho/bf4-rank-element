@@ -5,7 +5,7 @@
     "Fagner Nunes Carvalho <fagnerncarvalho@gmail.com>"
   ],
   "description": "Element providing basic rank information for a BF4 soldier.",
-  "keywords": "bf4, game, rank, soldier",
+  "keywords": "bf4, game, rank, soldier, web-components",
   "main": "bf4-rank-element.html",
   "license": "MIT",
   "homepage": "https://github.com/fagnercarvalho/bf4-rank-element/",
