@@ -1,0 +1,20 @@
+{
+  "name": "bf4-rank-element",
+  "version": "1.0.0",
+  "authors": [
+    "Fagner Nunes Carvalho <fagnerncarvalho@gmail.com>"
+  ],
+  "description": "Element providing basic rank information for a BF4 soldier.",
+  "keywords": ["bf4", "game", "rank", "soldier", "web-components"],
+  "main": "bf4-rank-element.html",
+  "license": "MIT",
+  "homepage": "https://github.com/fagnercarvalho/bf4-rank-element/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#>=0.4.0 <1.0.0",
+    "polymer-test-tools": "Polymer/polymer-test-tools#>=0.4.0 <1.0.0",
+    "polymer-jsonp": "Polymer/polymer-jsonp#>=0.2.3 <0.3.0"
+  }
+}

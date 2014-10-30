@@ -1,0 +1,12 @@
+{
+  "name": "bf4-rank-element#gh-pages",
+  "private": true,
+  "resolutions": {
+    "polymer": "0.2.4",
+    "platform": "0.2.4",
+    "core-component-page": "0.2.4"
+  },
+  "dependencies": {
+    "bf4-rank-element": "fagnercarvalho/bf4-rank-element#master"
+  }
+}
